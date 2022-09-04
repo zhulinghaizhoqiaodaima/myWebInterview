@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent {
+            width: 100vw;
+            height: 100vh;
+            background-color: aqua;
+        }
+
+        .child {
+            margin-top: 10px;
+            width: 200px;
+            height: 100px;
+            background-color: bisque;
+        }
+
+
+        /* 采用content+flex-wrap */
+        /* .parent{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+        } */
+        
+        /* .parent{
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        } */
+
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .parent {
+            display: grid;
+        }
+
+        .child {
+            align-self: center;
+            justify-self: center;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+
+        </div>
+      
+     
+    </div>
+</body>
+
+</html>
