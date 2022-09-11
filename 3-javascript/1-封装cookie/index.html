@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./index.js"></script>
+    <script>
+        //测试
+        let cookie = new Cookie();
+        cookie.setCookie('uName', '孤独的根号3', 7)
+        cookie.setCookie('login', '1', 30)
+        cookie.setCookie('A', 1111, 1)
+        cookie.setCookie('B', 2222, 1)
+        cookie.deleteCookie('A')
+        console.log(cookie.getCookie('uName'))
+
+    </script>
+</body>
+
+</html>
