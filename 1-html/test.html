@@ -2,48 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
 <body>
-    <script>
-        class Cookie {
-            //设置cookie
-            setCookie(key, value, time) {
-                let expires = new Date(new Date().getTime() + (time * 24 * 60 * 60 * 1000)).toGMTString()//Date对象转换为字符串
-                document.cookie = `${key}=${value};expires=${expires};` // expire 设置浏览器期限
-            }
-            //获取cookie
-            getCookie(key) {
-                let cookies = (document.cookie).split('; ')
-                var temp;
-                for (let i = 0; i < cookies.length; i++) {
-                    temp = cookies[i].split('=')
-                    if (key == temp[0]) {
-                        return temp[1]
-                    }
-                }
-                return null
-            }
-            //删除cookie
-            deleteCookie(key) {
-                let value = this.getCookie(key);
-                this.setCookie(key, value, -1)
-            }
-        }
-        //测试
-        let cookie = new Cookie();
-        cookie.setCookie('uName', '孤独的根号3', 7)
-        cookie.setCookie('login', '1', 30)
-        cookie.setCookie('A', 1111, 1)
-        cookie.setCookie('B', 2222, 1)
-        cookie.deleteCookie('A')
-        console.log(cookie.getCookie('uName'))
-
-    </script>
+  <canvas id="mycanvas"></canvas>
+  <script>
+    let c = document.getElementById("mycanvas")
+    let ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.lineWidth = "6";
+    ctx.strokeStyle = "red"
+    ctx.arc(100,75,50,0,2*Math.PI)
+    ctx.stroke()
+  </script>
 </body>
 
 </html>
