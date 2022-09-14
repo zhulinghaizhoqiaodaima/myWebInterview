@@ -1,14 +1,15 @@
-const arr = [7, 1, 4, 3, 2,5,6];
-// for (const elem of arr) {
-//   setTimeout(() => console.log(elem), elem);
-// }
-// for (let i = 0; i < arr.length; i++) {
-//     setTimeout(() => console.log(arr[i]), arr[i]);
-// }
+function myInstanceof(left, right) {
+    right = right.prototype;
+    // left = left.__proto__;
+    while (true) {
+        if (left === null) return false;
+        if (left === right) return true;
+        left = left.__proto__
+    }
+}
+let a = ()=>{
 
-// arr.forEach(elem => {
-//     setTimeout(() => console.log(elem), elem);
-// });
-arr.map(elem=>{
-    setTimeout(() => console.log(elem), elem);
-})
+};
+let b = Object;
+console.log(a instanceof Object, myInstanceof(a, Object));  //true,true
+console.log(b instanceof Function, myInstanceof(b, Function));  //false,false
