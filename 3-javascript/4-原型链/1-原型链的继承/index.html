@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function Super() { this.a = 1 }
+        Super.prototype.say = function () { console.log('hhh') }
+        function Sub() { }
+        Sub.prototype = new Super()
+
+        const test = new Sub()
+        test.say()
+    </script>
+</body>
+
+</html>

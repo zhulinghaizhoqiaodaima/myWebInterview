@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .anima {
+            animation-name: likes; 
+            animation-direction: alternate; 
+            animation-timing-function: linear; 
+            animation-delay: 0s; 
+            animation-iteration-count: infinite; 
+            animation-duration: 1s; 
+        }
+        /* 循环无限大小 */
+        @keyframes likes {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(0.9);
+            }
+
+            50% {
+                transform: scale(0.85);
+            }
+
+            75% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<!-- https://fe.ecool.fun/topic/c7b08d95-edf0-4d08-ac73-ce0b87c08e85?orderBy=updateTime&order=desc&tagId=11 -->
+<body>
+    <image class="anima" mode="widthFix" @click="nav" src="../img/test.jpg"></image>
+</body>
+
+</html>

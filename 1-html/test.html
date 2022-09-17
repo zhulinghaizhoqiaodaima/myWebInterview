@@ -7,16 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+ 
+  .test{
+    background-color: aqua;
+    height: 50px;
+    width: 50px;
+    position:absolute
+  }
+</style>
+
 <body>
-  <canvas id="mycanvas"></canvas>
+  <div class="test"></div>
   <script>
-    let c = document.getElementById("mycanvas")
-    let ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.lineWidth = "6";
-    ctx.strokeStyle = "red"
-    ctx.arc(100,75,50,0,2*Math.PI)
-    ctx.stroke()
+
   </script>
 </body>
 
