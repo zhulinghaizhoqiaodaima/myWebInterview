@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="id-my-links">
+        <li id="id_1">这是1</li>
+        <li id="id_2">这是2</li>
+        <li id="id_3">这是3</li>
+    </ul>
+
+</body>
+<script>
+    let item1 = document.getElementById("id_1");
+    let item2 = document.getElementById("id_2");
+    let item3 = document.getElementById("id_3");
+    // item1.onclick = function () {
+    //     console.log(this)
+    // };
+    // item2.onclick = function () {
+    //     console.log(this)
+    // };
+    // item3.onclick = function () {
+    //     console.log(this)
+    // };
+
+    let eMyLinks = document.getElementById("id-my-links")
+   
+    eMyLinks.addEventListener("click", function (event) {
+        let target = event.target;
+        // console.log(event);
+        console.log(window.event.srcElement);
+        console.log(target);
+
+        switch (target.id) {
+            case "id_1":
+                console.log(this)
+                break;
+            case "id_2":
+                console.log(this)
+                break;
+            case "id_3":
+                console.log(this)
+                break;
+        }
+    })
+
+</script>
+
+</html>

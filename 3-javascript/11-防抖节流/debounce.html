@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input class="input" style="height:200px" type="text" name="" id="">
+    </div>
+    <script>
+        const debounce = (fn, delay) => {
+            let timer = null;
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(fn, delay)
+            }
+        }
+
+        const inputDom = document.querySelector('.input')
+        inputDom.oninput = debounce(function () {
+            console.log('调用了');
+        }, 500)
+        // window.onscroll = debounce(function(){
+        //     console.log('调用了');
+        // },500)
+        const throttle = (fn, delay) => {
+            let canRun = true;
+            return function () {
+                if (!canRun) return;
+                canRun = false;
+                setTimeout(() => {
+                    fn(...arguments)
+                    canRun = true;
+                }, delay)
+            }
+        }
+      
+        window.addEventListener('resize', throttle(function (e) {
+            console.log(e);
+        },500))
+    </script>
+</body>
+
+</html>

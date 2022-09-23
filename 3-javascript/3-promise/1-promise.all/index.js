@@ -14,8 +14,9 @@ Promise.myAll = (promises)=>{
   return new Promise((resolve,reject)=>{
     let arr = [];
     for (const item of promises) {
-        Promise.resolve(item).then(res=>{ // 这里是微队列代码
+        Promise.resolve(item).then(res=>{ // 这里是微队列代码,将非promise数值封装为promise
             arr.push(res)
+            console.log(promises);
           if(Object.keys(promises).length === arr.length) return resolve(arr)
         }).catch(reject)
     }
@@ -23,7 +24,7 @@ Promise.myAll = (promises)=>{
   })
 }
 
-const p1 = Promise.resolve('p1')
+const p1 = Promise.resolve(Symbol(99))
 const p2 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('p2 延时一秒')
