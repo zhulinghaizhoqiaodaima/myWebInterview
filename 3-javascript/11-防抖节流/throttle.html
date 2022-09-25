@@ -20,11 +20,9 @@
     <script>
         const debounce = (fn, delay) => {
             let timer = null;
-            return function (args) {
+            return function () {
                 clearTimeout(timer);
-                timer = setTimeout(function () {
-                    fn(args)
-                }, delay)
+                timer = setTimeout(fn, delay)
             }
         }
 
@@ -46,10 +44,10 @@
                 }, delay)
             }
         }
-
+      
         window.addEventListener('resize', throttle(function (e) {
             console.log(e);
-        }, 500))
+        },500))
     </script>
 </body>
 

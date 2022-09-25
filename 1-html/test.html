@@ -1,80 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+​
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>没有防抖</title>
+  <style type="text/css"></style>
 </head>
-<style>
-  .parent {
-    width: 400px;
-    height: 400px;
-    background-color: aqua;
-  }
-
-  .child {
-    width: 200px;
-    height: 200px;
-    background-color: azure;
-    /* transition: All 0.4s ease-in-out; */
-    animation: circling 10s linear infinite; 
-  }
-
-  /* .child:hover {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  } */
-
-  /* @keyframes circling {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  } */
-</style>
+​
 
 <body>
-  <div class="parent">
-    <div class="child"></div>
+  <div style="height: 2000px">
+    <input type="text" name="normal" id="debounce">
   </div>
-  <script>
-    let box = document.querySelector('.parent')
-    let child = document.querySelector('.child')
-    box.style.display = 'flex'
-    box.style.justifyContent = 'center'
-    box.style.alignItems = 'center'
-    const keyframes = `@keyframes circling { 
-      0% {
-      transform: rotate(0deg);
-      }
-    100% {
-      transform: rotate(360deg);
-    }}`
-    // 创建style标签
-    const style = document.createElement('style');
-    // 设置style属性
-    style.type = 'text/css';
-    // 将 keyframes样式写入style内
-    style.innerHTML = keyframes;
-    child.appendChild(style);
-    child.onmouseover = () => {
-      style.innerHTML = '';
-      
-    }
-    child.onmouseout = () => {
-      style.innerHTML = keyframes;
-      // 将style样式存放到child标签
-    // child.appendChild(style);
-    }
-
-  </script>
 </body>
+​
+<script type="text/javascript">
+  //模拟ajax请求
+  function ajax(content) {
+    console.log('http ' + content)
+  }
+
+  //防抖函数，fun传入要执行防抖的函数，delay判断防抖的延迟
+  function debounce(fun, delay) {
+    let timer = null;
+    return function (args) {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        fun(args)
+      }, delay)
+    }
+  }
+
+  let inputDebounce = document.getElementById('debounce')
+  let debounceAjax = debounce(ajax, 500)
+  // inputDebounce.oninput = (e) => {
+  //   debounceAjax(e.target.value)
+  // }
+  let scrollDebounce = debounce(function (evt) {
+    console.log('调用了', evt);
+  }, 500)
+  window.onscroll = (evt) => {
+    scrollDebounce(evt)
+  }
+  inputDebounce.addEventListener('keyup', function (e) {
+    debounceAjax(e.target.value)
+  })
+</script>
 
 </html>
